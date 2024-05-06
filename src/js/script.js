@@ -95,4 +95,23 @@ async function handleSubmit(e) {
   }
 }
 
+async function loadMore() {
+  options.params.page += 1;
+  try {
+    const res = await axios.get(BASE_URL, options);
+    const hits = res.data.hits;
+    renderGallery(hits);
+  } catch (e) {
+    Notify.failure(e);
+  }
+}
+
+function handleScroll() {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  if (scrollTop + clientHeight >= scrollHeight) {
+    loadMore();
+  }
+}
+
 searchFormEl.addEventListener('submit', handleSubmit);
+window.addEventListener('scroll', handleScroll);
