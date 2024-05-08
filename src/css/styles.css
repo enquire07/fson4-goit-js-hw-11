@@ -1,0 +1,25 @@
+body {
+  background-color: beige;
+}
+.search-bar {
+  padding-left: 30px;
+}
+.main-content {
+  padding: 20px 30px;
+}
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+img {
+  width: 430px;
+  height: 370px;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 30px;
+}
